@@ -1,0 +1,10 @@
+python main.py --data_name=ogbl-ddi --emb_hidden_channels=512 --gnn_hidden_channels=512 --mlp_hidden_channels=512 --num_neg=3 --dropout=0.3 --device=3 --init=NPPR --alpha=0.5 --predictor=MLPDOT
+python main.py --data_name=ogbl-ddi --emb_hidden_channels=512 --gnn_hidden_channels=512 --mlp_hidden_channels=512 --num_neg=3 --dropout=0.3 --device=3 --init=NPPR --alpha=0.5 --predictor=MLPCAT
+python main.py --data_name=ogbl-ddi --emb_hidden_channels=512 --gnn_hidden_channels=512 --mlp_hidden_channels=512 --num_neg=3 --dropout=0.3 --device=3 --init=NPPR --alpha=0.5 --predictor=MLPBIL
+python main.py --data_name=ogbl-ddi --emb_hidden_channels=512 --gnn_hidden_channels=512 --mlp_hidden_channels=512 --num_neg=3 --dropout=0.3 --device=3 --init=NPPR --alpha=0.5 --predictor=BIL
+python main.py --data_name=ogbl-ddi --emb_hidden_channels=512 --gnn_hidden_channels=512 --mlp_hidden_channels=512 --num_neg=3 --dropout=0.3 --device=3 --init=NPPR --alpha=0.5 --predictor=DOT
+python main.py --data_name=ogbl-ddi --emb_hidden_channels=512 --gnn_hidden_channels=512 --mlp_hidden_channels=512 --num_neg=3 --dropout=0.3 --device=3 --init=NPPR --alpha=0.5 --loss_func=WeightedAUC
+python main.py --data_name=ogbl-ddi --emb_hidden_channels=512 --gnn_hidden_channels=512 --mlp_hidden_channels=512 --num_neg=3 --dropout=0.3 --device=3 --init=NPPR --alpha=0.5 --loss_func=AdaHingeAUC
+python main.py --data_name=ogbl-ddi --emb_hidden_channels=512 --gnn_hidden_channels=512 --mlp_hidden_channels=512 --num_neg=3 --dropout=0.3 --device=3 --init=NPPR --alpha=0.5 --loss_func=AdaAUC
+python main.py --data_name=ogbl-ddi --emb_hidden_channels=512 --gnn_hidden_channels=512 --mlp_hidden_channels=512 --num_neg=3 --dropout=0.3 --device=3 --init=NPPR --alpha=0.5 --loss_func=WeightedHingeAUC
+python main.py --data_name=ogbl-ddi --emb_hidden_channels=512 --gnn_hidden_channels=512 --mlp_hidden_channels=512 --num_neg=3 --dropout=0.3 --device=3 --init=NPPR --alpha=0.5 --loss_func=LogRank
