@@ -1,0 +1,629 @@
+Namespace(device=3, encoder='HLGNN', predictor='MLP', optimizer='Adam', loss_func='WeightedHingeAUC', neg_sampler='global', data_name='ogbl-ddi', data_path='/home/zhangjuzheng/dataset', eval_metric='hits', walk_start_type='edge', res_dir='log', pretrain_emb=None, gnn_num_layers=15, mlp_num_layers=2, emb_hidden_channels=512, gnn_hidden_channels=512, mlp_hidden_channels=512, dropout=0.3, grad_clip_norm=2.0, batch_size=65536, lr=0.001, num_neg=3, walk_length=5, epochs=500, log_steps=1, eval_steps=5, runs=1, year=2010, use_lr_decay=False, use_node_feats=False, use_coalesce=False, train_node_emb=True, use_valedges_as_input=False, eval_last_best=False, random_walk_augment=False, alpha=0.5, init='NPPR')
+Total number of model parameters is 2710545
+Hits@20
+Run: 01, Epoch: 05, Loss: 59428.3967, Learning Rate: 0.0010, Valid: 1.71%, Test: 1.15%
+Hits@50
+Run: 01, Epoch: 05, Loss: 59428.3967, Learning Rate: 0.0010, Valid: 5.19%, Test: 4.14%
+Hits@100
+Run: 01, Epoch: 05, Loss: 59428.3967, Learning Rate: 0.0010, Valid: 9.54%, Test: 8.01%
+Hits@20
+Run: 01, Epoch: 10, Loss: 43433.0375, Learning Rate: 0.0010, Valid: 3.76%, Test: 3.69%
+Hits@50
+Run: 01, Epoch: 10, Loss: 43433.0375, Learning Rate: 0.0010, Valid: 7.72%, Test: 6.49%
+Hits@100
+Run: 01, Epoch: 10, Loss: 43433.0375, Learning Rate: 0.0010, Valid: 13.04%, Test: 10.71%
+Hits@20
+Run: 01, Epoch: 15, Loss: 30384.7559, Learning Rate: 0.0010, Valid: 4.27%, Test: 4.57%
+Hits@50
+Run: 01, Epoch: 15, Loss: 30384.7559, Learning Rate: 0.0010, Valid: 15.21%, Test: 17.21%
+Hits@100
+Run: 01, Epoch: 15, Loss: 30384.7559, Learning Rate: 0.0010, Valid: 27.24%, Test: 28.56%
+Hits@20
+Run: 01, Epoch: 20, Loss: 24927.7806, Learning Rate: 0.0010, Valid: 5.08%, Test: 1.88%
+Hits@50
+Run: 01, Epoch: 20, Loss: 24927.7806, Learning Rate: 0.0010, Valid: 14.65%, Test: 6.89%
+Hits@100
+Run: 01, Epoch: 20, Loss: 24927.7806, Learning Rate: 0.0010, Valid: 27.68%, Test: 17.02%
+Hits@20
+Run: 01, Epoch: 25, Loss: 21947.9158, Learning Rate: 0.0010, Valid: 3.85%, Test: 2.73%
+Hits@50
+Run: 01, Epoch: 25, Loss: 21947.9158, Learning Rate: 0.0010, Valid: 18.21%, Test: 11.70%
+Hits@100
+Run: 01, Epoch: 25, Loss: 21947.9158, Learning Rate: 0.0010, Valid: 35.03%, Test: 24.65%
+Hits@20
+Run: 01, Epoch: 30, Loss: 19169.1773, Learning Rate: 0.0010, Valid: 6.24%, Test: 4.51%
+Hits@50
+Run: 01, Epoch: 30, Loss: 19169.1773, Learning Rate: 0.0010, Valid: 20.66%, Test: 15.62%
+Hits@100
+Run: 01, Epoch: 30, Loss: 19169.1773, Learning Rate: 0.0010, Valid: 32.87%, Test: 29.65%
+Hits@20
+Run: 01, Epoch: 35, Loss: 17586.4857, Learning Rate: 0.0010, Valid: 11.08%, Test: 8.90%
+Hits@50
+Run: 01, Epoch: 35, Loss: 17586.4857, Learning Rate: 0.0010, Valid: 20.33%, Test: 22.72%
+Hits@100
+Run: 01, Epoch: 35, Loss: 17586.4857, Learning Rate: 0.0010, Valid: 39.62%, Test: 43.48%
+Hits@20
+Run: 01, Epoch: 40, Loss: 15966.1439, Learning Rate: 0.0010, Valid: 6.23%, Test: 13.89%
+Hits@50
+Run: 01, Epoch: 40, Loss: 15966.1439, Learning Rate: 0.0010, Valid: 22.48%, Test: 32.94%
+Hits@100
+Run: 01, Epoch: 40, Loss: 15966.1439, Learning Rate: 0.0010, Valid: 40.23%, Test: 46.95%
+Hits@20
+Run: 01, Epoch: 45, Loss: 14635.9849, Learning Rate: 0.0010, Valid: 5.42%, Test: 17.73%
+Hits@50
+Run: 01, Epoch: 45, Loss: 14635.9849, Learning Rate: 0.0010, Valid: 24.04%, Test: 39.11%
+Hits@100
+Run: 01, Epoch: 45, Loss: 14635.9849, Learning Rate: 0.0010, Valid: 47.10%, Test: 54.29%
+Hits@20
+Run: 01, Epoch: 50, Loss: 13718.8932, Learning Rate: 0.0010, Valid: 8.06%, Test: 17.19%
+Hits@50
+Run: 01, Epoch: 50, Loss: 13718.8932, Learning Rate: 0.0010, Valid: 33.21%, Test: 39.33%
+Hits@100
+Run: 01, Epoch: 50, Loss: 13718.8932, Learning Rate: 0.0010, Valid: 54.67%, Test: 58.36%
+Hits@20
+Run: 01, Epoch: 55, Loss: 12917.8941, Learning Rate: 0.0010, Valid: 7.30%, Test: 24.59%
+Hits@50
+Run: 01, Epoch: 55, Loss: 12917.8941, Learning Rate: 0.0010, Valid: 35.60%, Test: 42.47%
+Hits@100
+Run: 01, Epoch: 55, Loss: 12917.8941, Learning Rate: 0.0010, Valid: 56.88%, Test: 60.16%
+Hits@20
+Run: 01, Epoch: 60, Loss: 12134.2183, Learning Rate: 0.0010, Valid: 12.64%, Test: 23.05%
+Hits@50
+Run: 01, Epoch: 60, Loss: 12134.2183, Learning Rate: 0.0010, Valid: 41.14%, Test: 48.97%
+Hits@100
+Run: 01, Epoch: 60, Loss: 12134.2183, Learning Rate: 0.0010, Valid: 59.92%, Test: 65.47%
+Hits@20
+Run: 01, Epoch: 65, Loss: 11580.5510, Learning Rate: 0.0010, Valid: 16.64%, Test: 21.34%
+Hits@50
+Run: 01, Epoch: 65, Loss: 11580.5510, Learning Rate: 0.0010, Valid: 45.00%, Test: 46.16%
+Hits@100
+Run: 01, Epoch: 65, Loss: 11580.5510, Learning Rate: 0.0010, Valid: 60.83%, Test: 70.21%
+Hits@20
+Run: 01, Epoch: 70, Loss: 11144.8558, Learning Rate: 0.0010, Valid: 11.00%, Test: 23.18%
+Hits@50
+Run: 01, Epoch: 70, Loss: 11144.8558, Learning Rate: 0.0010, Valid: 50.65%, Test: 51.12%
+Hits@100
+Run: 01, Epoch: 70, Loss: 11144.8558, Learning Rate: 0.0010, Valid: 61.22%, Test: 73.10%
+Hits@20
+Run: 01, Epoch: 75, Loss: 10709.1757, Learning Rate: 0.0010, Valid: 15.69%, Test: 24.50%
+Hits@50
+Run: 01, Epoch: 75, Loss: 10709.1757, Learning Rate: 0.0010, Valid: 54.21%, Test: 55.36%
+Hits@100
+Run: 01, Epoch: 75, Loss: 10709.1757, Learning Rate: 0.0010, Valid: 63.90%, Test: 75.83%
+Hits@20
+Run: 01, Epoch: 80, Loss: 10406.2878, Learning Rate: 0.0010, Valid: 10.96%, Test: 23.92%
+Hits@50
+Run: 01, Epoch: 80, Loss: 10406.2878, Learning Rate: 0.0010, Valid: 50.73%, Test: 42.67%
+Hits@100
+Run: 01, Epoch: 80, Loss: 10406.2878, Learning Rate: 0.0010, Valid: 63.10%, Test: 73.35%
+Hits@20
+Run: 01, Epoch: 85, Loss: 10141.8176, Learning Rate: 0.0010, Valid: 13.87%, Test: 31.88%
+Hits@50
+Run: 01, Epoch: 85, Loss: 10141.8176, Learning Rate: 0.0010, Valid: 55.42%, Test: 60.61%
+Hits@100
+Run: 01, Epoch: 85, Loss: 10141.8176, Learning Rate: 0.0010, Valid: 65.50%, Test: 81.56%
+Hits@20
+Run: 01, Epoch: 90, Loss: 9879.3373, Learning Rate: 0.0010, Valid: 18.81%, Test: 43.28%
+Hits@50
+Run: 01, Epoch: 90, Loss: 9879.3373, Learning Rate: 0.0010, Valid: 56.89%, Test: 70.26%
+Hits@100
+Run: 01, Epoch: 90, Loss: 9879.3373, Learning Rate: 0.0010, Valid: 67.47%, Test: 83.58%
+Hits@20
+Run: 01, Epoch: 95, Loss: 9671.8368, Learning Rate: 0.0010, Valid: 18.79%, Test: 52.76%
+Hits@50
+Run: 01, Epoch: 95, Loss: 9671.8368, Learning Rate: 0.0010, Valid: 60.68%, Test: 72.68%
+Hits@100
+Run: 01, Epoch: 95, Loss: 9671.8368, Learning Rate: 0.0010, Valid: 67.95%, Test: 86.19%
+Hits@20
+Run: 01, Epoch: 100, Loss: 9481.8225, Learning Rate: 0.0010, Valid: 16.69%, Test: 44.04%
+Hits@50
+Run: 01, Epoch: 100, Loss: 9481.8225, Learning Rate: 0.0010, Valid: 58.66%, Test: 73.78%
+Hits@100
+Run: 01, Epoch: 100, Loss: 9481.8225, Learning Rate: 0.0010, Valid: 69.62%, Test: 85.50%
+Hits@20
+Run: 01, Epoch: 105, Loss: 9302.3089, Learning Rate: 0.0010, Valid: 23.42%, Test: 45.17%
+Hits@50
+Run: 01, Epoch: 105, Loss: 9302.3089, Learning Rate: 0.0010, Valid: 59.57%, Test: 77.91%
+Hits@100
+Run: 01, Epoch: 105, Loss: 9302.3089, Learning Rate: 0.0010, Valid: 71.34%, Test: 88.38%
+Hits@20
+Run: 01, Epoch: 110, Loss: 9157.9831, Learning Rate: 0.0010, Valid: 26.74%, Test: 49.23%
+Hits@50
+Run: 01, Epoch: 110, Loss: 9157.9831, Learning Rate: 0.0010, Valid: 60.96%, Test: 78.46%
+Hits@100
+Run: 01, Epoch: 110, Loss: 9157.9831, Learning Rate: 0.0010, Valid: 70.89%, Test: 87.96%
+Hits@20
+Run: 01, Epoch: 115, Loss: 9034.8288, Learning Rate: 0.0010, Valid: 33.83%, Test: 39.45%
+Hits@50
+Run: 01, Epoch: 115, Loss: 9034.8288, Learning Rate: 0.0010, Valid: 62.40%, Test: 80.10%
+Hits@100
+Run: 01, Epoch: 115, Loss: 9034.8288, Learning Rate: 0.0010, Valid: 70.79%, Test: 90.24%
+Hits@20
+Run: 01, Epoch: 120, Loss: 8933.9155, Learning Rate: 0.0010, Valid: 35.68%, Test: 47.18%
+Hits@50
+Run: 01, Epoch: 120, Loss: 8933.9155, Learning Rate: 0.0010, Valid: 62.46%, Test: 79.45%
+Hits@100
+Run: 01, Epoch: 120, Loss: 8933.9155, Learning Rate: 0.0010, Valid: 72.13%, Test: 90.06%
+Hits@20
+Run: 01, Epoch: 125, Loss: 8809.0932, Learning Rate: 0.0010, Valid: 42.20%, Test: 60.12%
+Hits@50
+Run: 01, Epoch: 125, Loss: 8809.0932, Learning Rate: 0.0010, Valid: 63.33%, Test: 80.29%
+Hits@100
+Run: 01, Epoch: 125, Loss: 8809.0932, Learning Rate: 0.0010, Valid: 76.47%, Test: 90.41%
+Hits@20
+Run: 01, Epoch: 130, Loss: 8732.1401, Learning Rate: 0.0010, Valid: 41.07%, Test: 47.40%
+Hits@50
+Run: 01, Epoch: 130, Loss: 8732.1401, Learning Rate: 0.0010, Valid: 65.83%, Test: 80.90%
+Hits@100
+Run: 01, Epoch: 130, Loss: 8732.1401, Learning Rate: 0.0010, Valid: 75.04%, Test: 89.78%
+Hits@20
+Run: 01, Epoch: 135, Loss: 8639.1851, Learning Rate: 0.0010, Valid: 38.37%, Test: 58.51%
+Hits@50
+Run: 01, Epoch: 135, Loss: 8639.1851, Learning Rate: 0.0010, Valid: 64.21%, Test: 82.26%
+Hits@100
+Run: 01, Epoch: 135, Loss: 8639.1851, Learning Rate: 0.0010, Valid: 80.93%, Test: 91.15%
+Hits@20
+Run: 01, Epoch: 140, Loss: 8561.4420, Learning Rate: 0.0010, Valid: 46.95%, Test: 54.97%
+Hits@50
+Run: 01, Epoch: 140, Loss: 8561.4420, Learning Rate: 0.0010, Valid: 65.91%, Test: 81.57%
+Hits@100
+Run: 01, Epoch: 140, Loss: 8561.4420, Learning Rate: 0.0010, Valid: 79.74%, Test: 91.34%
+Hits@20
+Run: 01, Epoch: 145, Loss: 8488.4118, Learning Rate: 0.0010, Valid: 46.76%, Test: 60.95%
+Hits@50
+Run: 01, Epoch: 145, Loss: 8488.4118, Learning Rate: 0.0010, Valid: 65.67%, Test: 82.55%
+Hits@100
+Run: 01, Epoch: 145, Loss: 8488.4118, Learning Rate: 0.0010, Valid: 83.12%, Test: 92.62%
+Hits@20
+Run: 01, Epoch: 150, Loss: 8432.1771, Learning Rate: 0.0010, Valid: 38.72%, Test: 63.76%
+Hits@50
+Run: 01, Epoch: 150, Loss: 8432.1771, Learning Rate: 0.0010, Valid: 64.78%, Test: 83.59%
+Hits@100
+Run: 01, Epoch: 150, Loss: 8432.1771, Learning Rate: 0.0010, Valid: 84.11%, Test: 92.62%
+Hits@20
+Run: 01, Epoch: 155, Loss: 8376.6609, Learning Rate: 0.0010, Valid: 41.59%, Test: 65.82%
+Hits@50
+Run: 01, Epoch: 155, Loss: 8376.6609, Learning Rate: 0.0010, Valid: 65.82%, Test: 85.29%
+Hits@100
+Run: 01, Epoch: 155, Loss: 8376.6609, Learning Rate: 0.0010, Valid: 85.71%, Test: 93.68%
+Hits@20
+Run: 01, Epoch: 160, Loss: 8285.4582, Learning Rate: 0.0010, Valid: 51.32%, Test: 60.15%
+Hits@50
+Run: 01, Epoch: 160, Loss: 8285.4582, Learning Rate: 0.0010, Valid: 66.31%, Test: 83.82%
+Hits@100
+Run: 01, Epoch: 160, Loss: 8285.4582, Learning Rate: 0.0010, Valid: 85.90%, Test: 92.92%
+Hits@20
+Run: 01, Epoch: 165, Loss: 8235.6959, Learning Rate: 0.0010, Valid: 57.55%, Test: 64.77%
+Hits@50
+Run: 01, Epoch: 165, Loss: 8235.6959, Learning Rate: 0.0010, Valid: 68.46%, Test: 87.20%
+Hits@100
+Run: 01, Epoch: 165, Loss: 8235.6959, Learning Rate: 0.0010, Valid: 89.19%, Test: 94.16%
+Hits@20
+Run: 01, Epoch: 170, Loss: 8210.7771, Learning Rate: 0.0010, Valid: 51.53%, Test: 57.97%
+Hits@50
+Run: 01, Epoch: 170, Loss: 8210.7771, Learning Rate: 0.0010, Valid: 67.82%, Test: 87.58%
+Hits@100
+Run: 01, Epoch: 170, Loss: 8210.7771, Learning Rate: 0.0010, Valid: 85.11%, Test: 93.61%
+Hits@20
+Run: 01, Epoch: 175, Loss: 8137.4104, Learning Rate: 0.0010, Valid: 50.86%, Test: 68.60%
+Hits@50
+Run: 01, Epoch: 175, Loss: 8137.4104, Learning Rate: 0.0010, Valid: 68.10%, Test: 86.94%
+Hits@100
+Run: 01, Epoch: 175, Loss: 8137.4104, Learning Rate: 0.0010, Valid: 86.31%, Test: 94.28%
+Hits@20
+Run: 01, Epoch: 180, Loss: 8114.9305, Learning Rate: 0.0010, Valid: 42.48%, Test: 61.66%
+Hits@50
+Run: 01, Epoch: 180, Loss: 8114.9305, Learning Rate: 0.0010, Valid: 68.48%, Test: 88.19%
+Hits@100
+Run: 01, Epoch: 180, Loss: 8114.9305, Learning Rate: 0.0010, Valid: 85.88%, Test: 94.08%
+Hits@20
+Run: 01, Epoch: 185, Loss: 8078.8428, Learning Rate: 0.0010, Valid: 42.91%, Test: 67.27%
+Hits@50
+Run: 01, Epoch: 185, Loss: 8078.8428, Learning Rate: 0.0010, Valid: 69.45%, Test: 87.61%
+Hits@100
+Run: 01, Epoch: 185, Loss: 8078.8428, Learning Rate: 0.0010, Valid: 90.14%, Test: 94.08%
+Hits@20
+Run: 01, Epoch: 190, Loss: 8041.9630, Learning Rate: 0.0010, Valid: 60.75%, Test: 76.41%
+Hits@50
+Run: 01, Epoch: 190, Loss: 8041.9630, Learning Rate: 0.0010, Valid: 71.98%, Test: 90.10%
+Hits@100
+Run: 01, Epoch: 190, Loss: 8041.9630, Learning Rate: 0.0010, Valid: 91.65%, Test: 94.64%
+Hits@20
+Run: 01, Epoch: 195, Loss: 7983.4764, Learning Rate: 0.0010, Valid: 47.70%, Test: 68.07%
+Hits@50
+Run: 01, Epoch: 195, Loss: 7983.4764, Learning Rate: 0.0010, Valid: 70.08%, Test: 88.47%
+Hits@100
+Run: 01, Epoch: 195, Loss: 7983.4764, Learning Rate: 0.0010, Valid: 89.79%, Test: 93.75%
+Hits@20
+Run: 01, Epoch: 200, Loss: 7974.8753, Learning Rate: 0.0010, Valid: 50.41%, Test: 73.60%
+Hits@50
+Run: 01, Epoch: 200, Loss: 7974.8753, Learning Rate: 0.0010, Valid: 71.29%, Test: 89.33%
+Hits@100
+Run: 01, Epoch: 200, Loss: 7974.8753, Learning Rate: 0.0010, Valid: 91.41%, Test: 94.60%
+Hits@20
+Run: 01, Epoch: 205, Loss: 7898.5954, Learning Rate: 0.0010, Valid: 56.92%, Test: 75.54%
+Hits@50
+Run: 01, Epoch: 205, Loss: 7898.5954, Learning Rate: 0.0010, Valid: 72.42%, Test: 89.22%
+Hits@100
+Run: 01, Epoch: 205, Loss: 7898.5954, Learning Rate: 0.0010, Valid: 92.49%, Test: 95.35%
+Hits@20
+Run: 01, Epoch: 210, Loss: 7872.2895, Learning Rate: 0.0010, Valid: 59.84%, Test: 76.47%
+Hits@50
+Run: 01, Epoch: 210, Loss: 7872.2895, Learning Rate: 0.0010, Valid: 71.82%, Test: 89.46%
+Hits@100
+Run: 01, Epoch: 210, Loss: 7872.2895, Learning Rate: 0.0010, Valid: 91.93%, Test: 95.06%
+Hits@20
+Run: 01, Epoch: 215, Loss: 7864.7684, Learning Rate: 0.0010, Valid: 56.49%, Test: 69.32%
+Hits@50
+Run: 01, Epoch: 215, Loss: 7864.7684, Learning Rate: 0.0010, Valid: 71.33%, Test: 88.78%
+Hits@100
+Run: 01, Epoch: 215, Loss: 7864.7684, Learning Rate: 0.0010, Valid: 91.35%, Test: 94.25%
+Hits@20
+Run: 01, Epoch: 220, Loss: 7827.4467, Learning Rate: 0.0010, Valid: 57.67%, Test: 72.67%
+Hits@50
+Run: 01, Epoch: 220, Loss: 7827.4467, Learning Rate: 0.0010, Valid: 71.47%, Test: 88.99%
+Hits@100
+Run: 01, Epoch: 220, Loss: 7827.4467, Learning Rate: 0.0010, Valid: 92.00%, Test: 94.64%
+Hits@20
+Run: 01, Epoch: 225, Loss: 7799.4132, Learning Rate: 0.0010, Valid: 52.36%, Test: 77.97%
+Hits@50
+Run: 01, Epoch: 225, Loss: 7799.4132, Learning Rate: 0.0010, Valid: 71.99%, Test: 87.08%
+Hits@100
+Run: 01, Epoch: 225, Loss: 7799.4132, Learning Rate: 0.0010, Valid: 91.32%, Test: 94.40%
+Hits@20
+Run: 01, Epoch: 230, Loss: 7793.0238, Learning Rate: 0.0010, Valid: 55.55%, Test: 77.81%
+Hits@50
+Run: 01, Epoch: 230, Loss: 7793.0238, Learning Rate: 0.0010, Valid: 71.24%, Test: 87.63%
+Hits@100
+Run: 01, Epoch: 230, Loss: 7793.0238, Learning Rate: 0.0010, Valid: 91.40%, Test: 94.26%
+Hits@20
+Run: 01, Epoch: 235, Loss: 7788.3698, Learning Rate: 0.0010, Valid: 61.89%, Test: 78.91%
+Hits@50
+Run: 01, Epoch: 235, Loss: 7788.3698, Learning Rate: 0.0010, Valid: 76.88%, Test: 89.00%
+Hits@100
+Run: 01, Epoch: 235, Loss: 7788.3698, Learning Rate: 0.0010, Valid: 93.12%, Test: 94.61%
+Hits@20
+Run: 01, Epoch: 240, Loss: 7742.2936, Learning Rate: 0.0010, Valid: 59.05%, Test: 75.35%
+Hits@50
+Run: 01, Epoch: 240, Loss: 7742.2936, Learning Rate: 0.0010, Valid: 75.44%, Test: 88.24%
+Hits@100
+Run: 01, Epoch: 240, Loss: 7742.2936, Learning Rate: 0.0010, Valid: 92.16%, Test: 94.01%
+Hits@20
+Run: 01, Epoch: 245, Loss: 7734.2504, Learning Rate: 0.0010, Valid: 58.61%, Test: 72.17%
+Hits@50
+Run: 01, Epoch: 245, Loss: 7734.2504, Learning Rate: 0.0010, Valid: 74.19%, Test: 88.81%
+Hits@100
+Run: 01, Epoch: 245, Loss: 7734.2504, Learning Rate: 0.0010, Valid: 92.48%, Test: 94.32%
+Hits@20
+Run: 01, Epoch: 250, Loss: 7729.3684, Learning Rate: 0.0010, Valid: 61.05%, Test: 74.46%
+Hits@50
+Run: 01, Epoch: 250, Loss: 7729.3684, Learning Rate: 0.0010, Valid: 78.36%, Test: 87.59%
+Hits@100
+Run: 01, Epoch: 250, Loss: 7729.3684, Learning Rate: 0.0010, Valid: 92.98%, Test: 94.02%
+Hits@20
+Run: 01, Epoch: 255, Loss: 7652.4925, Learning Rate: 0.0010, Valid: 55.96%, Test: 74.41%
+Hits@50
+Run: 01, Epoch: 255, Loss: 7652.4925, Learning Rate: 0.0010, Valid: 77.33%, Test: 88.45%
+Hits@100
+Run: 01, Epoch: 255, Loss: 7652.4925, Learning Rate: 0.0010, Valid: 93.20%, Test: 94.51%
+Hits@20
+Run: 01, Epoch: 260, Loss: 7678.4104, Learning Rate: 0.0010, Valid: 46.52%, Test: 74.97%
+Hits@50
+Run: 01, Epoch: 260, Loss: 7678.4104, Learning Rate: 0.0010, Valid: 80.41%, Test: 88.64%
+Hits@100
+Run: 01, Epoch: 260, Loss: 7678.4104, Learning Rate: 0.0010, Valid: 93.04%, Test: 94.71%
+Hits@20
+Run: 01, Epoch: 265, Loss: 7628.3394, Learning Rate: 0.0010, Valid: 50.71%, Test: 75.47%
+Hits@50
+Run: 01, Epoch: 265, Loss: 7628.3394, Learning Rate: 0.0010, Valid: 77.03%, Test: 88.43%
+Hits@100
+Run: 01, Epoch: 265, Loss: 7628.3394, Learning Rate: 0.0010, Valid: 93.11%, Test: 94.11%
+Hits@20
+Run: 01, Epoch: 270, Loss: 7636.8669, Learning Rate: 0.0010, Valid: 59.15%, Test: 70.43%
+Hits@50
+Run: 01, Epoch: 270, Loss: 7636.8669, Learning Rate: 0.0010, Valid: 78.98%, Test: 87.67%
+Hits@100
+Run: 01, Epoch: 270, Loss: 7636.8669, Learning Rate: 0.0010, Valid: 92.68%, Test: 94.10%
+Hits@20
+Run: 01, Epoch: 275, Loss: 7556.9300, Learning Rate: 0.0010, Valid: 59.23%, Test: 74.64%
+Hits@50
+Run: 01, Epoch: 275, Loss: 7556.9300, Learning Rate: 0.0010, Valid: 80.00%, Test: 90.46%
+Hits@100
+Run: 01, Epoch: 275, Loss: 7556.9300, Learning Rate: 0.0010, Valid: 93.89%, Test: 94.46%
+Hits@20
+Run: 01, Epoch: 280, Loss: 7574.3630, Learning Rate: 0.0010, Valid: 64.93%, Test: 76.87%
+Hits@50
+Run: 01, Epoch: 280, Loss: 7574.3630, Learning Rate: 0.0010, Valid: 82.93%, Test: 90.01%
+Hits@100
+Run: 01, Epoch: 280, Loss: 7574.3630, Learning Rate: 0.0010, Valid: 93.85%, Test: 94.27%
+Hits@20
+Run: 01, Epoch: 285, Loss: 7552.9943, Learning Rate: 0.0010, Valid: 61.97%, Test: 77.72%
+Hits@50
+Run: 01, Epoch: 285, Loss: 7552.9943, Learning Rate: 0.0010, Valid: 83.38%, Test: 89.82%
+Hits@100
+Run: 01, Epoch: 285, Loss: 7552.9943, Learning Rate: 0.0010, Valid: 93.97%, Test: 95.25%
+Hits@20
+Run: 01, Epoch: 290, Loss: 7502.6179, Learning Rate: 0.0010, Valid: 61.92%, Test: 71.48%
+Hits@50
+Run: 01, Epoch: 290, Loss: 7502.6179, Learning Rate: 0.0010, Valid: 81.20%, Test: 89.25%
+Hits@100
+Run: 01, Epoch: 290, Loss: 7502.6179, Learning Rate: 0.0010, Valid: 94.20%, Test: 94.39%
+Hits@20
+Run: 01, Epoch: 295, Loss: 7486.0078, Learning Rate: 0.0010, Valid: 61.99%, Test: 73.54%
+Hits@50
+Run: 01, Epoch: 295, Loss: 7486.0078, Learning Rate: 0.0010, Valid: 79.05%, Test: 87.49%
+Hits@100
+Run: 01, Epoch: 295, Loss: 7486.0078, Learning Rate: 0.0010, Valid: 93.26%, Test: 93.23%
+Hits@20
+Run: 01, Epoch: 300, Loss: 7502.4158, Learning Rate: 0.0010, Valid: 65.05%, Test: 77.39%
+Hits@50
+Run: 01, Epoch: 300, Loss: 7502.4158, Learning Rate: 0.0010, Valid: 84.23%, Test: 89.01%
+Hits@100
+Run: 01, Epoch: 300, Loss: 7502.4158, Learning Rate: 0.0010, Valid: 93.76%, Test: 93.90%
+Hits@20
+Run: 01, Epoch: 305, Loss: 7458.0249, Learning Rate: 0.0010, Valid: 60.98%, Test: 76.69%
+Hits@50
+Run: 01, Epoch: 305, Loss: 7458.0249, Learning Rate: 0.0010, Valid: 84.16%, Test: 88.74%
+Hits@100
+Run: 01, Epoch: 305, Loss: 7458.0249, Learning Rate: 0.0010, Valid: 93.91%, Test: 93.98%
+Hits@20
+Run: 01, Epoch: 310, Loss: 7481.7078, Learning Rate: 0.0010, Valid: 62.52%, Test: 75.17%
+Hits@50
+Run: 01, Epoch: 310, Loss: 7481.7078, Learning Rate: 0.0010, Valid: 85.14%, Test: 87.78%
+Hits@100
+Run: 01, Epoch: 310, Loss: 7481.7078, Learning Rate: 0.0010, Valid: 93.42%, Test: 93.38%
+Hits@20
+Run: 01, Epoch: 315, Loss: 7443.3513, Learning Rate: 0.0010, Valid: 64.61%, Test: 75.01%
+Hits@50
+Run: 01, Epoch: 315, Loss: 7443.3513, Learning Rate: 0.0010, Valid: 84.63%, Test: 86.99%
+Hits@100
+Run: 01, Epoch: 315, Loss: 7443.3513, Learning Rate: 0.0010, Valid: 93.35%, Test: 92.63%
+Hits@20
+Run: 01, Epoch: 320, Loss: 7418.1848, Learning Rate: 0.0010, Valid: 65.37%, Test: 76.07%
+Hits@50
+Run: 01, Epoch: 320, Loss: 7418.1848, Learning Rate: 0.0010, Valid: 85.64%, Test: 87.70%
+Hits@100
+Run: 01, Epoch: 320, Loss: 7418.1848, Learning Rate: 0.0010, Valid: 92.74%, Test: 94.00%
+Hits@20
+Run: 01, Epoch: 325, Loss: 7393.8812, Learning Rate: 0.0010, Valid: 63.12%, Test: 77.53%
+Hits@50
+Run: 01, Epoch: 325, Loss: 7393.8812, Learning Rate: 0.0010, Valid: 88.24%, Test: 87.76%
+Hits@100
+Run: 01, Epoch: 325, Loss: 7393.8812, Learning Rate: 0.0010, Valid: 94.00%, Test: 94.36%
+Hits@20
+Run: 01, Epoch: 330, Loss: 7396.8462, Learning Rate: 0.0010, Valid: 64.89%, Test: 75.14%
+Hits@50
+Run: 01, Epoch: 330, Loss: 7396.8462, Learning Rate: 0.0010, Valid: 85.43%, Test: 86.91%
+Hits@100
+Run: 01, Epoch: 330, Loss: 7396.8462, Learning Rate: 0.0010, Valid: 93.79%, Test: 93.55%
+Hits@20
+Run: 01, Epoch: 335, Loss: 7375.8032, Learning Rate: 0.0010, Valid: 60.95%, Test: 72.47%
+Hits@50
+Run: 01, Epoch: 335, Loss: 7375.8032, Learning Rate: 0.0010, Valid: 79.49%, Test: 85.84%
+Hits@100
+Run: 01, Epoch: 335, Loss: 7375.8032, Learning Rate: 0.0010, Valid: 92.71%, Test: 92.13%
+Hits@20
+Run: 01, Epoch: 340, Loss: 7300.3176, Learning Rate: 0.0010, Valid: 63.95%, Test: 75.20%
+Hits@50
+Run: 01, Epoch: 340, Loss: 7300.3176, Learning Rate: 0.0010, Valid: 85.81%, Test: 87.14%
+Hits@100
+Run: 01, Epoch: 340, Loss: 7300.3176, Learning Rate: 0.0010, Valid: 93.84%, Test: 93.43%
+Hits@20
+Run: 01, Epoch: 345, Loss: 7313.4287, Learning Rate: 0.0010, Valid: 65.27%, Test: 75.25%
+Hits@50
+Run: 01, Epoch: 345, Loss: 7313.4287, Learning Rate: 0.0010, Valid: 86.99%, Test: 87.87%
+Hits@100
+Run: 01, Epoch: 345, Loss: 7313.4287, Learning Rate: 0.0010, Valid: 93.53%, Test: 93.51%
+Hits@20
+Run: 01, Epoch: 350, Loss: 7315.7208, Learning Rate: 0.0010, Valid: 61.90%, Test: 74.82%
+Hits@50
+Run: 01, Epoch: 350, Loss: 7315.7208, Learning Rate: 0.0010, Valid: 86.16%, Test: 86.24%
+Hits@100
+Run: 01, Epoch: 350, Loss: 7315.7208, Learning Rate: 0.0010, Valid: 93.68%, Test: 91.66%
+Hits@20
+Run: 01, Epoch: 355, Loss: 7308.1479, Learning Rate: 0.0010, Valid: 60.79%, Test: 72.42%
+Hits@50
+Run: 01, Epoch: 355, Loss: 7308.1479, Learning Rate: 0.0010, Valid: 86.06%, Test: 85.49%
+Hits@100
+Run: 01, Epoch: 355, Loss: 7308.1479, Learning Rate: 0.0010, Valid: 93.23%, Test: 91.74%
+Hits@20
+Run: 01, Epoch: 360, Loss: 7254.5187, Learning Rate: 0.0010, Valid: 60.35%, Test: 73.72%
+Hits@50
+Run: 01, Epoch: 360, Loss: 7254.5187, Learning Rate: 0.0010, Valid: 85.97%, Test: 84.44%
+Hits@100
+Run: 01, Epoch: 360, Loss: 7254.5187, Learning Rate: 0.0010, Valid: 92.38%, Test: 91.56%
+Hits@20
+Run: 01, Epoch: 365, Loss: 7268.2047, Learning Rate: 0.0010, Valid: 64.89%, Test: 73.43%
+Hits@50
+Run: 01, Epoch: 365, Loss: 7268.2047, Learning Rate: 0.0010, Valid: 88.03%, Test: 86.87%
+Hits@100
+Run: 01, Epoch: 365, Loss: 7268.2047, Learning Rate: 0.0010, Valid: 94.36%, Test: 93.31%
+Hits@20
+Run: 01, Epoch: 370, Loss: 7245.0376, Learning Rate: 0.0010, Valid: 63.03%, Test: 72.60%
+Hits@50
+Run: 01, Epoch: 370, Loss: 7245.0376, Learning Rate: 0.0010, Valid: 86.23%, Test: 87.24%
+Hits@100
+Run: 01, Epoch: 370, Loss: 7245.0376, Learning Rate: 0.0010, Valid: 93.31%, Test: 92.02%
+Hits@20
+Run: 01, Epoch: 375, Loss: 7251.2646, Learning Rate: 0.0010, Valid: 59.98%, Test: 69.76%
+Hits@50
+Run: 01, Epoch: 375, Loss: 7251.2646, Learning Rate: 0.0010, Valid: 84.91%, Test: 85.19%
+Hits@100
+Run: 01, Epoch: 375, Loss: 7251.2646, Learning Rate: 0.0010, Valid: 92.94%, Test: 90.65%
+Hits@20
+Run: 01, Epoch: 380, Loss: 7206.7931, Learning Rate: 0.0010, Valid: 63.99%, Test: 68.52%
+Hits@50
+Run: 01, Epoch: 380, Loss: 7206.7931, Learning Rate: 0.0010, Valid: 85.87%, Test: 85.88%
+Hits@100
+Run: 01, Epoch: 380, Loss: 7206.7931, Learning Rate: 0.0010, Valid: 92.77%, Test: 91.50%
+Hits@20
+Run: 01, Epoch: 385, Loss: 7192.2360, Learning Rate: 0.0010, Valid: 61.96%, Test: 74.49%
+Hits@50
+Run: 01, Epoch: 385, Loss: 7192.2360, Learning Rate: 0.0010, Valid: 86.26%, Test: 86.53%
+Hits@100
+Run: 01, Epoch: 385, Loss: 7192.2360, Learning Rate: 0.0010, Valid: 93.88%, Test: 92.22%
+Hits@20
+Run: 01, Epoch: 390, Loss: 7190.9490, Learning Rate: 0.0010, Valid: 63.23%, Test: 71.90%
+Hits@50
+Run: 01, Epoch: 390, Loss: 7190.9490, Learning Rate: 0.0010, Valid: 84.74%, Test: 84.53%
+Hits@100
+Run: 01, Epoch: 390, Loss: 7190.9490, Learning Rate: 0.0010, Valid: 92.36%, Test: 91.18%
+Hits@20
+Run: 01, Epoch: 395, Loss: 7144.6460, Learning Rate: 0.0010, Valid: 62.35%, Test: 68.21%
+Hits@50
+Run: 01, Epoch: 395, Loss: 7144.6460, Learning Rate: 0.0010, Valid: 83.21%, Test: 83.73%
+Hits@100
+Run: 01, Epoch: 395, Loss: 7144.6460, Learning Rate: 0.0010, Valid: 92.65%, Test: 91.05%
+Hits@20
+Run: 01, Epoch: 400, Loss: 7121.4654, Learning Rate: 0.0010, Valid: 62.61%, Test: 66.72%
+Hits@50
+Run: 01, Epoch: 400, Loss: 7121.4654, Learning Rate: 0.0010, Valid: 83.10%, Test: 84.16%
+Hits@100
+Run: 01, Epoch: 400, Loss: 7121.4654, Learning Rate: 0.0010, Valid: 92.25%, Test: 90.45%
+Hits@20
+Run: 01, Epoch: 405, Loss: 7110.0688, Learning Rate: 0.0010, Valid: 64.08%, Test: 71.83%
+Hits@50
+Run: 01, Epoch: 405, Loss: 7110.0688, Learning Rate: 0.0010, Valid: 87.32%, Test: 86.61%
+Hits@100
+Run: 01, Epoch: 405, Loss: 7110.0688, Learning Rate: 0.0010, Valid: 92.38%, Test: 91.33%
+Hits@20
+Run: 01, Epoch: 410, Loss: 7138.4171, Learning Rate: 0.0010, Valid: 63.20%, Test: 68.14%
+Hits@50
+Run: 01, Epoch: 410, Loss: 7138.4171, Learning Rate: 0.0010, Valid: 86.60%, Test: 85.78%
+Hits@100
+Run: 01, Epoch: 410, Loss: 7138.4171, Learning Rate: 0.0010, Valid: 92.94%, Test: 90.65%
+Hits@20
+Run: 01, Epoch: 415, Loss: 7086.1991, Learning Rate: 0.0010, Valid: 64.04%, Test: 68.52%
+Hits@50
+Run: 01, Epoch: 415, Loss: 7086.1991, Learning Rate: 0.0010, Valid: 83.34%, Test: 84.24%
+Hits@100
+Run: 01, Epoch: 415, Loss: 7086.1991, Learning Rate: 0.0010, Valid: 92.16%, Test: 89.83%
+Hits@20
+Run: 01, Epoch: 420, Loss: 7068.8466, Learning Rate: 0.0010, Valid: 64.79%, Test: 67.37%
+Hits@50
+Run: 01, Epoch: 420, Loss: 7068.8466, Learning Rate: 0.0010, Valid: 84.97%, Test: 85.22%
+Hits@100
+Run: 01, Epoch: 420, Loss: 7068.8466, Learning Rate: 0.0010, Valid: 92.43%, Test: 90.77%
+Hits@20
+Run: 01, Epoch: 425, Loss: 7042.0101, Learning Rate: 0.0010, Valid: 64.79%, Test: 68.95%
+Hits@50
+Run: 01, Epoch: 425, Loss: 7042.0101, Learning Rate: 0.0010, Valid: 85.51%, Test: 85.14%
+Hits@100
+Run: 01, Epoch: 425, Loss: 7042.0101, Learning Rate: 0.0010, Valid: 92.34%, Test: 90.86%
+Hits@20
+Run: 01, Epoch: 430, Loss: 7020.4028, Learning Rate: 0.0010, Valid: 63.44%, Test: 70.31%
+Hits@50
+Run: 01, Epoch: 430, Loss: 7020.4028, Learning Rate: 0.0010, Valid: 87.08%, Test: 85.34%
+Hits@100
+Run: 01, Epoch: 430, Loss: 7020.4028, Learning Rate: 0.0010, Valid: 91.98%, Test: 90.91%
+Hits@20
+Run: 01, Epoch: 435, Loss: 7042.6329, Learning Rate: 0.0010, Valid: 67.17%, Test: 67.76%
+Hits@50
+Run: 01, Epoch: 435, Loss: 7042.6329, Learning Rate: 0.0010, Valid: 85.90%, Test: 83.93%
+Hits@100
+Run: 01, Epoch: 435, Loss: 7042.6329, Learning Rate: 0.0010, Valid: 91.55%, Test: 90.18%
+Hits@20
+Run: 01, Epoch: 440, Loss: 7029.8753, Learning Rate: 0.0010, Valid: 63.76%, Test: 66.37%
+Hits@50
+Run: 01, Epoch: 440, Loss: 7029.8753, Learning Rate: 0.0010, Valid: 85.12%, Test: 80.48%
+Hits@100
+Run: 01, Epoch: 440, Loss: 7029.8753, Learning Rate: 0.0010, Valid: 91.73%, Test: 89.35%
+Hits@20
+Run: 01, Epoch: 445, Loss: 6991.0794, Learning Rate: 0.0010, Valid: 65.83%, Test: 68.47%
+Hits@50
+Run: 01, Epoch: 445, Loss: 6991.0794, Learning Rate: 0.0010, Valid: 85.33%, Test: 82.34%
+Hits@100
+Run: 01, Epoch: 445, Loss: 6991.0794, Learning Rate: 0.0010, Valid: 92.59%, Test: 89.80%
+Hits@20
+Run: 01, Epoch: 450, Loss: 6924.3354, Learning Rate: 0.0010, Valid: 64.30%, Test: 66.47%
+Hits@50
+Run: 01, Epoch: 450, Loss: 6924.3354, Learning Rate: 0.0010, Valid: 85.60%, Test: 82.48%
+Hits@100
+Run: 01, Epoch: 450, Loss: 6924.3354, Learning Rate: 0.0010, Valid: 92.13%, Test: 88.81%
+Hits@20
+Run: 01, Epoch: 455, Loss: 6964.9284, Learning Rate: 0.0010, Valid: 62.88%, Test: 61.03%
+Hits@50
+Run: 01, Epoch: 455, Loss: 6964.9284, Learning Rate: 0.0010, Valid: 85.03%, Test: 82.59%
+Hits@100
+Run: 01, Epoch: 455, Loss: 6964.9284, Learning Rate: 0.0010, Valid: 91.28%, Test: 88.46%
+Hits@20
+Run: 01, Epoch: 460, Loss: 6924.1745, Learning Rate: 0.0010, Valid: 61.86%, Test: 66.75%
+Hits@50
+Run: 01, Epoch: 460, Loss: 6924.1745, Learning Rate: 0.0010, Valid: 84.35%, Test: 81.67%
+Hits@100
+Run: 01, Epoch: 460, Loss: 6924.1745, Learning Rate: 0.0010, Valid: 91.59%, Test: 88.25%
+Hits@20
+Run: 01, Epoch: 465, Loss: 6909.3881, Learning Rate: 0.0010, Valid: 64.46%, Test: 63.80%
+Hits@50
+Run: 01, Epoch: 465, Loss: 6909.3881, Learning Rate: 0.0010, Valid: 86.33%, Test: 81.57%
+Hits@100
+Run: 01, Epoch: 465, Loss: 6909.3881, Learning Rate: 0.0010, Valid: 92.18%, Test: 89.45%
+Hits@20
+Run: 01, Epoch: 470, Loss: 6905.9796, Learning Rate: 0.0010, Valid: 65.68%, Test: 64.07%
+Hits@50
+Run: 01, Epoch: 470, Loss: 6905.9796, Learning Rate: 0.0010, Valid: 84.40%, Test: 79.90%
+Hits@100
+Run: 01, Epoch: 470, Loss: 6905.9796, Learning Rate: 0.0010, Valid: 91.65%, Test: 89.35%
+Hits@20
+Run: 01, Epoch: 475, Loss: 6866.9408, Learning Rate: 0.0010, Valid: 63.84%, Test: 65.97%
+Hits@50
+Run: 01, Epoch: 475, Loss: 6866.9408, Learning Rate: 0.0010, Valid: 84.50%, Test: 84.28%
+Hits@100
+Run: 01, Epoch: 475, Loss: 6866.9408, Learning Rate: 0.0010, Valid: 91.87%, Test: 89.76%
+Hits@20
+Run: 01, Epoch: 480, Loss: 6884.8876, Learning Rate: 0.0010, Valid: 62.72%, Test: 69.42%
+Hits@50
+Run: 01, Epoch: 480, Loss: 6884.8876, Learning Rate: 0.0010, Valid: 83.65%, Test: 82.07%
+Hits@100
+Run: 01, Epoch: 480, Loss: 6884.8876, Learning Rate: 0.0010, Valid: 91.34%, Test: 89.22%
+Hits@20
+Run: 01, Epoch: 485, Loss: 6881.0006, Learning Rate: 0.0010, Valid: 63.72%, Test: 68.86%
+Hits@50
+Run: 01, Epoch: 485, Loss: 6881.0006, Learning Rate: 0.0010, Valid: 83.37%, Test: 80.56%
+Hits@100
+Run: 01, Epoch: 485, Loss: 6881.0006, Learning Rate: 0.0010, Valid: 91.25%, Test: 87.97%
+Hits@20
+Run: 01, Epoch: 490, Loss: 6839.0537, Learning Rate: 0.0010, Valid: 61.75%, Test: 65.84%
+Hits@50
+Run: 01, Epoch: 490, Loss: 6839.0537, Learning Rate: 0.0010, Valid: 81.27%, Test: 80.21%
+Hits@100
+Run: 01, Epoch: 490, Loss: 6839.0537, Learning Rate: 0.0010, Valid: 89.05%, Test: 85.99%
+Hits@20
+Run: 01, Epoch: 495, Loss: 6813.8721, Learning Rate: 0.0010, Valid: 64.81%, Test: 66.75%
+Hits@50
+Run: 01, Epoch: 495, Loss: 6813.8721, Learning Rate: 0.0010, Valid: 83.06%, Test: 81.65%
+Hits@100
+Run: 01, Epoch: 495, Loss: 6813.8721, Learning Rate: 0.0010, Valid: 91.54%, Test: 87.56%
+Hits@20
+Run: 01, Epoch: 500, Loss: 6861.0906, Learning Rate: 0.0010, Valid: 62.93%, Test: 59.69%
+Hits@50
+Run: 01, Epoch: 500, Loss: 6861.0906, Learning Rate: 0.0010, Valid: 79.02%, Test: 79.80%
+Hits@100
+Run: 01, Epoch: 500, Loss: 6861.0906, Learning Rate: 0.0010, Valid: 90.16%, Test: 86.45%
+Hits@20
+Run 01:
+Highest Valid: 67.17
+Highest Eval Point: 87
+   Final Test: 67.76
+Hits@50
+Run 01:
+Highest Valid: 88.24
+Highest Eval Point: 65
+   Final Test: 87.76
+Hits@100
+Run 01:
+Highest Valid: 94.36
+Highest Eval Point: 73
+   Final Test: 93.31
+Hits@20
+All runs:
+Highest Valid: 67.17  nan
+   Final Test: 67.76  nan
+Hits@50
+All runs:
+Highest Valid: 88.24  nan
+   Final Test: 87.76  nan
+Hits@100
+All runs:
+Highest Valid: 94.36  nan
+   Final Test: 93.31  nan

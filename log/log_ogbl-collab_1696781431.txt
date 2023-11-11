@@ -1,0 +1,26 @@
+Namespace(device=1, encoder='HL-GNN', predictor='MLP', optimizer='Adam', loss_func='AUC', neg_sampler='global', data_name='ogbl-collab', data_path='/home/zhangjuzheng/dataset', eval_metric='hits', walk_start_type='edge', res_dir='log', pretrain_emb=None, gnn_num_layers=15, mlp_num_layers=2, emb_hidden_channels=256, gnn_hidden_channels=256, mlp_hidden_channels=256, dropout=0.3, grad_clip_norm=2.0, batch_size=65536, lr=0.001, num_neg=1, walk_length=5, epochs=500, log_steps=1, eval_steps=5, runs=1, year=2010, use_lr_decay=False, use_node_feats=True, use_coalesce=False, train_node_emb=False, use_valedges_as_input=False, eval_last_best=False, random_walk_augment=False, alpha=0.5, init='NPPR')
+Total number of model parameters is 1970433
+Hits@20
+Run: 01, Epoch: 05, Loss: 21717.2278, Learning Rate: 0.0010, Valid: 2.23%, Test: 2.72%
+Hits@50
+Run: 01, Epoch: 05, Loss: 21717.2278, Learning Rate: 0.0010, Valid: 3.64%, Test: 3.37%
+Hits@100
+Run: 01, Epoch: 05, Loss: 21717.2278, Learning Rate: 0.0010, Valid: 5.18%, Test: 4.26%
+Hits@20
+Run: 01, Epoch: 10, Loss: 20809.6257, Learning Rate: 0.0010, Valid: 1.33%, Test: 2.31%
+Hits@50
+Run: 01, Epoch: 10, Loss: 20809.6257, Learning Rate: 0.0010, Valid: 3.61%, Test: 3.45%
+Hits@100
+Run: 01, Epoch: 10, Loss: 20809.6257, Learning Rate: 0.0010, Valid: 4.78%, Test: 4.12%
+Hits@20
+Run: 01, Epoch: 15, Loss: 17059.0518, Learning Rate: 0.0010, Valid: 1.08%, Test: 2.34%
+Hits@50
+Run: 01, Epoch: 15, Loss: 17059.0518, Learning Rate: 0.0010, Valid: 3.06%, Test: 3.05%
+Hits@100
+Run: 01, Epoch: 15, Loss: 17059.0518, Learning Rate: 0.0010, Valid: 3.28%, Test: 3.13%
+Hits@20
+Run: 01, Epoch: 20, Loss: 9844.3570, Learning Rate: 0.0010, Valid: 1.01%, Test: 2.22%
+Hits@50
+Run: 01, Epoch: 20, Loss: 9844.3570, Learning Rate: 0.0010, Valid: 2.31%, Test: 2.73%
+Hits@100
+Run: 01, Epoch: 20, Loss: 9844.3570, Learning Rate: 0.0010, Valid: 2.76%, Test: 3.00%

@@ -17,14 +17,14 @@ from utils import gcn_normalization, adj_normalization
 
 def argument():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--device', type=int, default=2)
+    parser.add_argument('--device', type=int, default=1)
     parser.add_argument('--encoder', type=str, default='HLGNN')
     parser.add_argument('--predictor', type=str, default='MLP')
     parser.add_argument('--optimizer', type=str, default='Adam')
     parser.add_argument('--loss_func', type=str, default='AUC')
     parser.add_argument('--neg_sampler', type=str, default='global')
     parser.add_argument('--data_name', type=str, default='ogbl-collab')
-    parser.add_argument('--data_path', type=str, default='~/dataset')
+    parser.add_argument('--data_path', type=str, default='/home/zhangjuzheng/dataset')
     parser.add_argument('--eval_metric', type=str, default='hits')
     parser.add_argument('--walk_start_type', type=str, default='edge')
     parser.add_argument('--res_dir', type=str, default='log')

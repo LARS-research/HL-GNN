@@ -2,7 +2,7 @@
 import torch
 import numpy as np
 import torch.nn.functional as F
-from torch_geometric.nn import SAGEConv, GCNConv, GraphConv, TransformerConv
+from torch_geometric.nn import SAGEConv, GCNConv, GraphConv, TransformerConv, GATConv
 from torch_geometric.nn import MessagePassing
 from torch.nn import Parameter, Linear
 from utils import *
@@ -43,6 +43,7 @@ class HLGNN(MessagePassing):
         assert init in ['SGC', 'PPR', 'NPPR', 'Random']
         if init == 'SGC':
             # SGC-like, note that in this case, alpha has to be a integer.
+            alpha = int(alpha)
             TEMP = 0.0 * np.ones(K+1)
             TEMP[alpha] = 1.0
         elif init == 'PPR':
@@ -66,6 +67,7 @@ class HLGNN(MessagePassing):
     def reset_parameters(self):
         torch.nn.init.zeros_(self.temp)
         if self.init == 'SGC':
+            self.alpha = int(self.alpha)
             self.temp.data[self.alpha]= 1.0
         elif self.init == 'PPR':
             for k in range(self.K+1):
@@ -98,7 +100,7 @@ class HLGNN(MessagePassing):
             x = self.propagate(edge_index, x=x, norm=norm)
             gamma = self.temp[k+1]
             hidden = hidden + gamma * x
-        # print(self.temp)
+        print(self.temp)
         return hidden
     
     def message(self, x_j, norm):
@@ -121,7 +123,14 @@ class GCN(BaseGNN):
             first_channels = in_channels if i == 0 else hidden_channels
             second_channels = out_channels if i == num_layers - 1 else hidden_channels
             self.convs.append(GCNConv(first_channels, second_channels, normalize=False))
-
+            
+class GAT(BaseGNN):
+    def __init__(self, in_channels, hidden_channels, out_channels, num_layers, dropout):
+        super(GAT, self).__init__(dropout, num_layers)
+        for i in range(num_layers):
+            first_channels = in_channels if i == 0 else hidden_channels
+            second_channels = out_channels if i == num_layers - 1 else hidden_channels
+            self.convs.append(GATConv(first_channels, second_channels))
 
 class WSAGE(BaseGNN):
     def __init__(self, in_channels, hidden_channels, out_channels, num_layers, dropout):
