@@ -1,8 +1,0 @@
-python main.py --data_name=ogbl-collab --predictor=DOT --use_valedges_as_input=True --year=2010 --epochs=800 --eval_last_best=True --dropout=0.3 --use_node_feat=True --alpha=0.2 --init NPPR --device=1
-python main.py --data_name=ogbl-collab --predictor=DOT --use_valedges_as_input=True --year=2010 --epochs=800 --eval_last_best=True --dropout=0.3 --use_node_feat=True --alpha=0.5 --init NPPR --device=1
-python main.py --data_name=ogbl-collab --predictor=DOT --use_valedges_as_input=True --year=2010 --epochs=800 --eval_last_best=True --dropout=0.3 --use_node_feat=True --alpha=0.8 --init NPPR --device=1
-python main.py --data_name=ogbl-collab --predictor=DOT --use_valedges_as_input=True --year=2010 --epochs=800 --eval_last_best=True --dropout=0.3 --use_node_feat=True --alpha=0.2 --init PPR --device=1
-python main.py --data_name=ogbl-collab --predictor=DOT --use_valedges_as_input=True --year=2010 --epochs=800 --eval_last_best=True --dropout=0.3 --use_node_feat=True --alpha=0.5 --init PPR --device=1
-python main.py --data_name=ogbl-collab --predictor=DOT --use_valedges_as_input=True --year=2010 --epochs=800 --eval_last_best=True --dropout=0.3 --use_node_feat=True --alpha=0.8 --init PPR --device=1
-python main.py --data_name=ogbl-collab --predictor=DOT --use_valedges_as_input=True --year=2011 --epochs=800 --eval_last_best=True --dropout=0.3 --use_node_feat=True --alpha=0.2 --init Random --device=1
-python main.py --data_name=ogbl-collab --predictor=DOT --use_valedges_as_input=True --year=2011 --epochs=800 --eval_last_best=True --dropout=0.3 --use_node_feat=True --alpha=15 --init SGC --device=1
