@@ -1,6 +1,6 @@
 # Heuristic Learning with Graph Neural Networks: A Unified Framework for Link Prediction
 
-This repository contains the implementation for the paper titled "Heuristic Learning with Graph Neural Networks: A Unified Framework for Link Prediction," which is currently under review for WWW 2024.
+This repository contains the implementation for the paper titled "Heuristic Learning with Graph Neural Networks: A Unified Framework for Link Prediction," which is currently under review for KDD 2024.
 
 ## Requirements
 
