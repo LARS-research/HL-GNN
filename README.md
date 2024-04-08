@@ -66,7 +66,7 @@ python main.py --data_name ogbl-ddi --emb_hidden_channels 512 --gnn_hidden_chann
 ## Results
 
 The results are presented in the table below. The format is average score ± standard deviation. OOM means out of GPU memory. Best and second-best performances are highlighted in **bold** and *italic*, respectively.
-|          |      Cora      |    Citeseer    |     Pubmed     |     Photo      |   Computers    |     collab     |      ddi       |      ppa       |   citation2    |
+|          |      Cora      |    Citeseer    |     Pubmed     |     Photo      |   Computers    |  ogbl-collab   |    ogbl-ddi    |    ogbl-ppa    | ogbl-citation2 |
 | :------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
 |  Metric  |    Hits@100    |    Hits@100    |    Hits@100    |      AUC       |      AUC       |    Hits@50     |    Hits@20     |    Hits@100    |      MRR       |
 |    CN    |   33.92±0.46   |   29.79±0.90   |   23.13±0.15   |   96.73±0.00   |   96.15±0.00   |   56.44±0.00   |   17.73±0.00   |   27.65±0.00   |   51.47±0.00   |
