@@ -16,60 +16,8 @@ import os.path as osp
 from torch_geometric.datasets import Planetoid
 from torch_geometric.utils import add_remaining_self_loops
 from torch_scatter import scatter_add
-
-def gcn_norm(edge_index, edge_weight=None, num_nodes=None, improved=False, add_self_loops=True, dtype=None):
-
-    fill_value = 2. if improved else 1.
-    num_nodes = int(edge_index.max()) + 1 if num_nodes is None else num_nodes
-    if edge_weight is None:
-        edge_weight = torch.ones((edge_index.size(1), ), dtype=dtype, device=edge_index.device)
-
-    if add_self_loops:
-        edge_index, tmp_edge_weight = add_remaining_self_loops(edge_index, edge_weight, fill_value, num_nodes)
-        assert tmp_edge_weight is not None
-        edge_weight = tmp_edge_weight
-
-    row, col = edge_index[0], edge_index[1]
-    deg = scatter_add(edge_weight, col, dim=0, dim_size=num_nodes)
-    deg_inv_sqrt = deg.pow_(-0.5)
-    deg_inv_sqrt.masked_fill_(deg_inv_sqrt == float('inf'), 0)
-    return edge_index, deg_inv_sqrt[row] * edge_weight * deg_inv_sqrt[col]
-
-def row_norm(edge_index, edge_weight=None, num_nodes=None, improved=False, add_self_loops=True, dtype=None):
-
-    fill_value = 2. if improved else 1.
-    num_nodes = int(edge_index.max()) + 1 if num_nodes is None else num_nodes
-    if edge_weight is None:
-        edge_weight = torch.ones((edge_index.size(1), ), dtype=dtype, device=edge_index.device)
-
-    if add_self_loops:
-        edge_index, tmp_edge_weight = add_remaining_self_loops(edge_index, edge_weight, fill_value, num_nodes)
-        assert tmp_edge_weight is not None
-        edge_weight = tmp_edge_weight
-
-    row, col = edge_index[0], edge_index[1]
-    deg = scatter_add(edge_weight, col, dim=0, dim_size=num_nodes)
-    deg_inv_sqrt = deg.pow_(-1)
-    deg_inv_sqrt.masked_fill_(deg_inv_sqrt == float('inf'), 0)
-    return edge_index, deg_inv_sqrt[row] * edge_weight
-
-def column_norm(edge_index, edge_weight=None, num_nodes=None, improved=False, add_self_loops=True, dtype=None):
-
-    fill_value = 2. if improved else 1.
-    num_nodes = int(edge_index.max()) + 1 if num_nodes is None else num_nodes
-    if edge_weight is None:
-        edge_weight = torch.ones((edge_index.size(1), ), dtype=dtype, device=edge_index.device)
-
-    if add_self_loops:
-        edge_index, tmp_edge_weight = add_remaining_self_loops(edge_index, edge_weight, fill_value, num_nodes)
-        assert tmp_edge_weight is not None
-        edge_weight = tmp_edge_weight
-
-    row, col = edge_index[0], edge_index[1]
-    deg = scatter_add(edge_weight, col, dim=0, dim_size=num_nodes)
-    deg_inv_sqrt = deg.pow_(-1)
-    deg_inv_sqrt.masked_fill_(deg_inv_sqrt == float('inf'), 0)
-    return edge_index, edge_weight * deg_inv_sqrt[col]
+from torch_sparse import matmul
+from torch_geometric.nn.conv.gcn_conv import gcn_norm
 
 
     
@@ -122,23 +70,25 @@ class HLGNN(MessagePassing):
             self.temp.data = self.temp.data / torch.sum(torch.abs(self.temp.data))
 
 
-    def forward(self, data):
-        x, edge_index, edge_weight = data.x, data.edge_index, data.edge_weight
+    def forward(self, x, adj_t, edge_weight):
         x = F.dropout(x, p=self.dropout, training=self.training)
         x = self.lin1(x)
-        edge_index, norm = gcn_norm(edge_index, edge_weight, data.num_nodes, dtype=torch.float)
+        adj_t = gcn_norm(adj_t, edge_weight, adj_t.size(0), dtype=torch.float)
         # edge_index, row_n = row_norm(raw_edge_index, edge_weight, num_nodes, dtype=torch.float)
         # edge_index, column_n = column_norm(raw_edge_index, edge_weight, num_nodes, dtype=torch.float)
         
         hidden = x * self.temp[0]
         for k in range(self.K):
-            x = self.propagate(edge_index, x=x, norm=norm)
+            x = self.propagate(adj_t, x=x, edge_weight=edge_weight, size=None)
             gamma = self.temp[k+1]
             hidden = hidden + gamma * x
         return hidden
     
-    def message(self, x_j, norm):
-        return norm.view(-1, 1) * x_j
+    # def message(self, x_j, norm):
+    #     return norm.view(-1, 1) * x_j
+    
+    def message_and_aggregate(self, adj_t, x):
+        return matmul(adj_t, x, reduce="add")
 
 
 class GCN(torch.nn.Module):
@@ -146,10 +96,10 @@ class GCN(torch.nn.Module):
         super(GCN, self).__init__()
 
         self.convs = torch.nn.ModuleList()
-        self.convs.append(GATConv(in_channels, hidden_channels, cached=True))
+        self.convs.append(GCNConv(in_channels, hidden_channels, cached=True))
         for _ in range(num_layers - 2):
-            self.convs.append(GATConv(hidden_channels, hidden_channels, cached=True))
-        self.convs.append(GATConv(hidden_channels, out_channels, cached=True))
+            self.convs.append(GCNConv(hidden_channels, hidden_channels, cached=True))
+        self.convs.append(GCNConv(hidden_channels, out_channels, cached=True))
 
         self.dropout = dropout
 

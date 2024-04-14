@@ -61,7 +61,19 @@ cd OGB
 python main.py --data_name ogbl-ddi --emb_hidden_channels 512 --gnn_hidden_channels 512 --mlp_hidden_channels 512 --num_neg 3 --dropout 0.3 --loss_func WeightedHingeAUC
 ```
 
+### **ogbl-ppa**
 
+```
+cd OGB
+python main.py --data_name ogbl-ppa --emb_hidden_channels 256 --mlp_hidden_channels 512 --gnn_hidden_channels 512 --grad_clip_norm 2.0 --epochs 500 --eval_steps 1 --num_neg 3 --dropout 0.5 --use_node_feat True --alpha 0.5 --loss_func WeightedHingeAUC
+```
+
+### **ogbl-citation2**
+
+```
+cd OGB
+python main.py --data_name ogbl-citation2 --emb_hidden_channels 64 --mlp_hidden_channels 256 --gnn_hidden_channels 256 --grad_clip_norm 1.0 --epochs 100 --eval_steps 1 --num_neg 3 --dropout 0.3 --eval_metric mrr --neg_sampler local --use_node_feat True --alpha 0.6
+```
 
 ## Results
 
@@ -82,4 +94,4 @@ The results are presented in the table below. The format is average score ± sta
 |  NBFNet  |   71.65±2.27   |   74.07±1.75   |   58.73±1.99   |   98.29±0.35   |   98.03±0.54   |      OOM       |   4.00±0.58    |      OOM       |      OOM       |
 | Neo-GNN  |   80.42±1.31   |   84.67±2.16   |   73.93±1.19   |   98.74±0.55   |   98.27±0.79   |   62.13±0.58   |   63.57±3.52   |   49.13±0.60   |   87.26±0.84   |
 |  BUDDY   |  *88.00±0.44*  |  *92.93±0.27*  |   74.10±0.78   |  *99.05±0.21*  |   98.69±0.34   |  *65.94±0.58*  |  *78.51±1.36*  | **49.85±0.20** |   87.56±0.11   |
-|  HL-GNN  | **94.22±1.64** | **94.31±1.51** | **88.15±0.38** | **99.11±0.07** | **98.82±0.21** | **68.11±0.54** | **80.27±3.98** |  *49.22±0.95*  | **88.05±0.68** |
+|  HL-GNN  | **94.22±1.64** | **94.31±1.51** | **88.15±0.38** | **99.11±0.07** | **98.82±0.21** | **68.11±0.54** | **80.27±3.98** |  *49.22±0.95*  | **89.43±0.83** |

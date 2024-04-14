@@ -7,6 +7,7 @@ from torch_geometric.nn import MessagePassing
 from torch.nn import Parameter, Linear
 from utils import *
 from torch_geometric.nn.conv.gcn_conv import gcn_norm
+from torch_sparse import matmul
 
 class BaseGNN(torch.nn.Module):
     def __init__(self, dropout, num_layers):
@@ -82,22 +83,22 @@ class HLGNN(MessagePassing):
     def forward(self, x, adj_t, edge_weight):
         x = F.dropout(x, p=self.dropout, training=self.training)
         x = self.lin1(x)
-        row, col, _ = adj_t.coo()
-        edge_index = torch.stack([col, row], dim=0)
-        edge_index, norm = gcn_norm(edge_index, edge_weight, adj_t.size(0), dtype=torch.float)
+        adj_t = gcn_norm(adj_t, edge_weight, adj_t.size(0), dtype=torch.float)
         # edge_index, row_n = row_norm(raw_edge_index, edge_weight, num_nodes, dtype=torch.float)
         # edge_index, column_n = column_norm(raw_edge_index, edge_weight, num_nodes, dtype=torch.float)
         
         hidden = x * self.temp[0]
         for k in range(self.K):
-            x = self.propagate(edge_index, x=x, norm=norm)
+            x = self.propagate(adj_t, x=x, edge_weight=edge_weight, size=None)
             gamma = self.temp[k+1]
             hidden = hidden + gamma * x
         return hidden
     
-    def message(self, x_j, norm):
-        return norm.view(-1, 1) * x_j
-
+    # def message(self, x_j, norm):
+    #     return norm.view(-1, 1) * x_j
+    
+    def message_and_aggregate(self, adj_t, x):
+        return matmul(adj_t, x, reduce="add")
 
 class SAGE(BaseGNN):
     def __init__(self, in_channels, hidden_channels, out_channels, num_layers, dropout):
