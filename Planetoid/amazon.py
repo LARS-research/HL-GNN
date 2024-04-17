@@ -27,7 +27,7 @@ def train(model, predictor, data, split_edge, optimizer, batch_size):
     total_loss = total_examples = 0
     for perm in DataLoader(range(pos_train_edge.size(0)), batch_size, shuffle=True):
         optimizer.zero_grad()
-        h = model(data)
+        h = model(data.x, data.adj_t, data.edge_weight)
 
         edge = pos_train_edge[perm].t()
         pos_out = predictor(h[edge[0]], h[edge[1]])
@@ -55,7 +55,7 @@ def train(model, predictor, data, split_edge, optimizer, batch_size):
 def test(model, predictor, data, split_edge, evaluator, batch_size):
     predictor.eval()
     model.eval()
-    h = model(data)
+    h = model(data.x, data.adj_t, data.edge_weight)
 
     pos_train_edge = split_edge['train']['edge'].to(data.x.device)
     pos_valid_edge = split_edge['valid']['edge'].to(data.x.device)

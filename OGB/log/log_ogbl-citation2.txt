@@ -1,0 +1,111 @@
+Namespace(device=0, encoder='HLGNN', predictor='MLP', optimizer='Adam', loss_func='AUC', neg_sampler='local', data_name='ogbl-citation2', data_path='~/dataset', eval_metric='mrr', walk_start_type='edge', res_dir='log', pretrain_emb=None, gnn_num_layers=15, mlp_num_layers=2, emb_hidden_channels=64, gnn_hidden_channels=256, mlp_hidden_channels=256, dropout=0.3, grad_clip_norm=1.0, batch_size=65536, lr=0.001, num_neg=3, walk_length=5, epochs=50, log_steps=1, eval_steps=1, runs=1, year=2010, use_lr_decay=False, use_node_feats=True, use_coalesce=False, train_node_emb=True, use_valedges_as_input=False, eval_last_best=False, random_walk_augment=False, alpha=0.6, init='KI')
+Total number of model parameters is 187505105
+MRR
+Run: 01, Epoch: 01, Loss: 18440.2249, Learning Rate: 0.0010, Valid: 78.47%, Test: 78.67%
+MRR
+Run: 01, Epoch: 02, Loss: 5114.4080, Learning Rate: 0.0010, Valid: 82.93%, Test: 82.97%
+MRR
+Run: 01, Epoch: 03, Loss: 3918.4366, Learning Rate: 0.0010, Valid: 84.47%, Test: 84.51%
+MRR
+Run: 01, Epoch: 04, Loss: 3367.6097, Learning Rate: 0.0010, Valid: 85.72%, Test: 85.89%
+MRR
+Run: 01, Epoch: 05, Loss: 3057.3241, Learning Rate: 0.0010, Valid: 86.17%, Test: 86.34%
+MRR
+Run: 01, Epoch: 06, Loss: 2820.7878, Learning Rate: 0.0010, Valid: 86.67%, Test: 86.80%
+MRR
+Run: 01, Epoch: 07, Loss: 2629.6774, Learning Rate: 0.0010, Valid: 87.14%, Test: 87.24%
+MRR
+Run: 01, Epoch: 08, Loss: 2495.1231, Learning Rate: 0.0010, Valid: 87.49%, Test: 87.56%
+MRR
+Run: 01, Epoch: 09, Loss: 2378.7070, Learning Rate: 0.0010, Valid: 87.74%, Test: 87.84%
+MRR
+Run: 01, Epoch: 10, Loss: 2303.4924, Learning Rate: 0.0010, Valid: 87.80%, Test: 87.98%
+MRR
+Run: 01, Epoch: 11, Loss: 2221.4964, Learning Rate: 0.0010, Valid: 87.90%, Test: 88.07%
+MRR
+Run: 01, Epoch: 12, Loss: 2167.4513, Learning Rate: 0.0010, Valid: 88.07%, Test: 88.24%
+MRR
+Run: 01, Epoch: 13, Loss: 2113.4506, Learning Rate: 0.0010, Valid: 88.15%, Test: 88.31%
+MRR
+Run: 01, Epoch: 14, Loss: 2060.1861, Learning Rate: 0.0010, Valid: 88.18%, Test: 88.32%
+MRR
+Run: 01, Epoch: 15, Loss: 2024.4343, Learning Rate: 0.0010, Valid: 88.27%, Test: 88.40%
+MRR
+Run: 01, Epoch: 16, Loss: 2003.6863, Learning Rate: 0.0010, Valid: 88.33%, Test: 88.49%
+MRR
+Run: 01, Epoch: 17, Loss: 1976.5046, Learning Rate: 0.0010, Valid: 88.44%, Test: 88.63%
+MRR
+Run: 01, Epoch: 18, Loss: 1948.7289, Learning Rate: 0.0010, Valid: 88.48%, Test: 88.64%
+MRR
+Run: 01, Epoch: 19, Loss: 1918.6612, Learning Rate: 0.0010, Valid: 88.47%, Test: 88.61%
+MRR
+Run: 01, Epoch: 20, Loss: 1885.3560, Learning Rate: 0.0010, Valid: 88.56%, Test: 88.68%
+MRR
+Run: 01, Epoch: 21, Loss: 1864.0976, Learning Rate: 0.0010, Valid: 88.55%, Test: 88.74%
+MRR
+Run: 01, Epoch: 22, Loss: 1842.4672, Learning Rate: 0.0010, Valid: 88.55%, Test: 88.73%
+MRR
+Run: 01, Epoch: 23, Loss: 1822.0954, Learning Rate: 0.0010, Valid: 88.52%, Test: 88.71%
+MRR
+Run: 01, Epoch: 24, Loss: 1801.6353, Learning Rate: 0.0010, Valid: 88.61%, Test: 88.75%
+MRR
+Run: 01, Epoch: 25, Loss: 1784.5162, Learning Rate: 0.0010, Valid: 88.56%, Test: 88.75%
+MRR
+Run: 01, Epoch: 26, Loss: 1767.7674, Learning Rate: 0.0010, Valid: 88.60%, Test: 88.80%
+MRR
+Run: 01, Epoch: 27, Loss: 1751.1279, Learning Rate: 0.0010, Valid: 88.64%, Test: 88.81%
+MRR
+Run: 01, Epoch: 28, Loss: 1732.1474, Learning Rate: 0.0010, Valid: 88.60%, Test: 88.85%
+MRR
+Run: 01, Epoch: 29, Loss: 1719.2610, Learning Rate: 0.0010, Valid: 88.65%, Test: 88.83%
+MRR
+Run: 01, Epoch: 30, Loss: 1704.7247, Learning Rate: 0.0010, Valid: 88.66%, Test: 88.84%
+MRR
+Run: 01, Epoch: 31, Loss: 1692.9314, Learning Rate: 0.0010, Valid: 88.67%, Test: 88.78%
+MRR
+Run: 01, Epoch: 32, Loss: 1682.1840, Learning Rate: 0.0010, Valid: 88.66%, Test: 88.76%
+MRR
+Run: 01, Epoch: 33, Loss: 1667.7464, Learning Rate: 0.0010, Valid: 88.61%, Test: 88.78%
+MRR
+Run: 01, Epoch: 34, Loss: 1656.7234, Learning Rate: 0.0010, Valid: 88.67%, Test: 88.84%
+MRR
+Run: 01, Epoch: 35, Loss: 1645.2220, Learning Rate: 0.0010, Valid: 88.67%, Test: 88.81%
+MRR
+Run: 01, Epoch: 36, Loss: 1633.3416, Learning Rate: 0.0010, Valid: 88.67%, Test: 88.76%
+MRR
+Run: 01, Epoch: 37, Loss: 1626.1004, Learning Rate: 0.0010, Valid: 88.64%, Test: 88.72%
+MRR
+Run: 01, Epoch: 38, Loss: 1617.8741, Learning Rate: 0.0010, Valid: 88.69%, Test: 88.81%
+MRR
+Run: 01, Epoch: 39, Loss: 1610.3270, Learning Rate: 0.0010, Valid: 88.70%, Test: 88.79%
+MRR
+Run: 01, Epoch: 40, Loss: 1604.7331, Learning Rate: 0.0010, Valid: 88.58%, Test: 88.73%
+MRR
+Run: 01, Epoch: 41, Loss: 1597.7818, Learning Rate: 0.0010, Valid: 88.70%, Test: 88.83%
+MRR
+Run: 01, Epoch: 42, Loss: 1592.5067, Learning Rate: 0.0010, Valid: 88.65%, Test: 88.78%
+MRR
+Run: 01, Epoch: 43, Loss: 1585.6789, Learning Rate: 0.0010, Valid: 88.75%, Test: 88.76%
+MRR
+Run: 01, Epoch: 44, Loss: 1580.4321, Learning Rate: 0.0010, Valid: 88.81%, Test: 88.99%
+MRR
+Run: 01, Epoch: 45, Loss: 1575.3829, Learning Rate: 0.0010, Valid: 88.76%, Test: 88.89%
+MRR
+Run: 01, Epoch: 46, Loss: 1570.5204, Learning Rate: 0.0010, Valid: 88.74%, Test: 88.87%
+MRR
+Run: 01, Epoch: 47, Loss: 1565.8345, Learning Rate: 0.0010, Valid: 88.77%, Test: 89.03%
+MRR
+Run: 01, Epoch: 48, Loss: 1561.3152, Learning Rate: 0.0010, Valid: 88.75%, Test: 88.89%
+MRR
+Run: 01, Epoch: 49, Loss: 1556.9525, Learning Rate: 0.0010, Valid: 88.72%, Test: 88.86%
+MRR
+Run: 01, Epoch: 50, Loss: 1552.7364, Learning Rate: 0.0010, Valid: 88.77%, Test: 88.87%
+MRR
+Run 01:
+Highest Valid: 88.81
+Highest Eval Point: 44
+   Final Test: 88.99
+MRR
+All runs:
+Highest Valid: 88.81  nan
+   Final Test: 88.99  nan

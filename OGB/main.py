@@ -153,8 +153,7 @@ def main():
 
     data = data.to(device)
 
-    if args.encoder.upper() == 'GCN':
-        # Pre-compute GCN normalization.
+    if args.encoder.upper() == 'GCN' or args.encoder.upper() == 'SAGE':
         data.adj_t = gcn_normalization(data.adj_t)
 
     if args.encoder.upper() == 'WSAGE':
