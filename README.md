@@ -6,6 +6,10 @@ This repository contains the official implementation of HL-GNN, as presented in 
 
 HL-GNN is a novel method for link prediction that unifies local and global heuristics into a matrix formulation and implements it efficiently using graph neural networks. HL-GNN is simpler than GCN and can effectively reach up to 20 layers. It demonstrates effectiveness in link prediction tasks and scales well to large OGB datasets. Notably, HL-GNN requires only a few parameters for training (excluding the predictor) and is significantly faster than existing methods.
 
+<div align=center>
+    <img src="/HL-GNN.png" alt="HL-GNN" width="60%" height="60%">
+</div>
+
 For more details, please refer to the [paper](https://arxiv.org/pdf/2406.07979).
 
 ## Installation
