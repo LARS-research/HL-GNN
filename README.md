@@ -1,97 +1,123 @@
-# Heuristic Learning with Graph Neural Networks: A Unified Framework for Link Prediction
+# Heuristic Learning Graph Neural Network (HL-GNN)
 
-This repository contains the implementation for the paper titled "Heuristic Learning with Graph Neural Networks: A Unified Framework for Link Prediction," which is currently under review for KDD 2024.
+This repository contains the official implementation of HL-GNN, as presented in the paper ["Heuristic Learning with Graph Neural Networks: A Unified Framework for Link Prediction,"](https://arxiv.org/pdf/2406.07979) accepted at KDD 2024.
 
-## Requirements
+## Overview
 
-Ensure you have the required dependencies installed by running:
+HL-GNN is a novel method for link prediction that unifies local and global heuristics into a matrix formulation and implements it efficiently using graph neural networks. HL-GNN is simpler than GCN and can effectively reach up to 20 layers. It demonstrates effectiveness in link prediction tasks and scales well to large OGB datasets. Notably, HL-GNN requires only a few parameters for training (excluding the predictor) and is significantly faster than existing methods.
 
-```
+For more details, please refer to the [paper](https://arxiv.org/pdf/2406.07979).
+
+## Installation
+
+Clone the repository and install the necessary dependencies:
+
+```bash
+git clone https://github.com/LARS-research/HL-GNN.git
+cd HL-GNN
 pip install -r requirements.txt
 ```
 
-## Usages
+## Usage
 
-### **Cora**
+### Planetoid Datasets
 
-```
+#### Cora
+
+```bash
 cd Planetoid
 python planetoid.py --dataset cora --mlp_num_layers 3 --hidden_channels 8192 --dropout 0.5 --epochs 100 --K 20 --alpha 0.2 --init RWR
 ```
 
-### Citeseer
+#### Citeseer
 
-```
+```bash
 cd Planetoid
 python planetoid.py --dataset citeseer --mlp_num_layers 2 --hidden_channels 8192 --dropout 0.5 --epochs 100 --K 20 --alpha 0.2 --init RWR
 ```
 
-### **Pubmed**
+#### Pubmed
 
-```
+```bash
 cd Planetoid
 python planetoid.py --dataset pubmed --mlp_num_layers 3 --hidden_channels 512 --dropout 0.6 --epochs 300 --K 20 --alpha 0.2 --init KI
 ```
 
-### **Photo**
+### Amazon Datasets
 
-```
+#### Photo
+
+```bash
 cd Planetoid
 python amazon.py --dataset photo --mlp_num_layers 3 --hidden_channels 512 --dropout 0.6 --epochs 200 --K 20 --alpha 0.2 --init RWR
 ```
 
-### **Computers**
+#### Computers
 
-```
+```bash
 cd Planetoid
 python amazon.py --dataset computers --mlp_num_layers 3 --hidden_channels 512 --dropout 0.6 --epochs 200 --K 20 --alpha 0.2 --init RWR
 ```
 
-### **ogbl-collab**
+### OGB Datasets
 
-```
+#### ogbl-collab
+
+```bash
 cd OGB
 python main.py --data_name ogbl-collab --predictor DOT --use_valedges_as_input True --year 2010 --epochs 800 --eval_last_best True --dropout 0.3 --use_node_feat True
 ```
 
-### **ogbl-ddi**
+#### ogbl-ddi
 
-```
+```bash
 cd OGB
 python main.py --data_name ogbl-ddi --emb_hidden_channels 512 --gnn_hidden_channels 512 --mlp_hidden_channels 512 --num_neg 3 --dropout 0.3 --loss_func WeightedHingeAUC
 ```
 
-### **ogbl-ppa**
+#### ogbl-ppa
 
-```
+```bash
 cd OGB
 python main.py --data_name ogbl-ppa --emb_hidden_channels 256 --mlp_hidden_channels 512 --gnn_hidden_channels 512 --grad_clip_norm 2.0 --epochs 500 --eval_steps 1 --num_neg 3 --dropout 0.5 --use_node_feat True --alpha 0.5 --loss_func WeightedHingeAUC
 ```
 
-### **ogbl-citation2**
+#### ogbl-citation2
 
-```
+```bash
 cd OGB
 python main.py --data_name ogbl-citation2 --emb_hidden_channels 64 --mlp_hidden_channels 256 --gnn_hidden_channels 256 --grad_clip_norm 1.0 --epochs 100 --eval_steps 1 --num_neg 3 --dropout 0.3 --eval_metric mrr --neg_sampler local --use_node_feat True --alpha 0.6
 ```
 
 ## Results
 
-The results are presented in the table below. The format is average score ± standard deviation. OOM means out of GPU memory. Best and second-best performances are highlighted in **bold** and *italic*, respectively.
-|          |      Cora      |    Citeseer    |     Pubmed     |     Photo      |   Computers    |  ogbl-collab   |    ogbl-ddi    |    ogbl-ppa    | ogbl-citation2 |
-| :------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
-|  Metric  |    Hits@100    |    Hits@100    |    Hits@100    |      AUC       |      AUC       |    Hits@50     |    Hits@20     |    Hits@100    |      MRR       |
-|    CN    |   33.92±0.46   |   29.79±0.90   |   23.13±0.15   |   96.73±0.00   |   96.15±0.00   |   56.44±0.00   |   17.73±0.00   |   27.65±0.00   |   51.47±0.00   |
-|    RA    |   41.07±0.48   |   33.56±0.17   |   27.03±0.35   |   97.20±0.00   |   96.82±0.00   |   64.00±0.00   |   27.60±0.00   |   49.33±0.00   |   51.98±0.00   |
-|    KI    |   42.34±0.39   |   35.62±0.33   |   30.91±0.69   |   97.45±0.00   |   97.05±0.00   |   59.79±0.00   |   21.23±0.00   |   24.31±0.00   |   47.83±0.00   |
-|   RWR    |   42.57±0.56   |   36.78±0.58   |   29.77±0.45   |   97.51±0.00   |   96.98±0.00   |   60.06±0.00   |   22.01±0.00   |   22.16±0.00   |   45.76±0.00   |
-|    MF    |   64.67±1.43   |   65.19±1.47   |   46.94±1.27   |   97.92±0.37   |   97.56±0.66   |   38.86±0.29   |   13.68±4.75   |   32.29±0.94   |   51.86±4.43   |
-| Node2vec |   68.43±2.65   |   69.34±3.04   |   51.88±1.55   |   98.37±0.33   |   98.21±0.39   |   48.88±0.54   |   23.26±2.09   |   22.26±0.88   |   61.41±0.11   |
-| DeepWalk |   70.34±2.96   |   72.05±2.56   |   54.91±1.25   |   98.83±0.23   |   98.45±0.45   |   50.37±0.34   |   26.42±6.10   |   35.12±0.79   |   55.58±1.75   |
-|   GCN    |   66.79±1.65   |   67.08±2.94   |   53.02±1.39   |   98.61±0.15   |   98.55±0.27   |   47.14±1.45   |   37.07±5.07   |   18.67±1.32   |   84.74±0.21   |
-|   GAT    |   60.78±3.17   |   62.94±2.45   |   46.29±1.73   |   98.42±0.19   |   98.47±0.32   |   55.78±1.39   |   54.12±5.43   |   19.94±1.69   |   86.33±0.54   |
-|   SEAL   |   81.71±1.30   |   83.89±2.15   |   75.54±1.32   |   98.85±0.04   |  *98.70±0.18*  |   64.74±0.43   |   30.56±3.86   |   48.80±3.16   |  *87.67±0.32*  |
-|  NBFNet  |   71.65±2.27   |   74.07±1.75   |   58.73±1.99   |   98.29±0.35   |   98.03±0.54   |      OOM       |   4.00±0.58    |      OOM       |      OOM       |
-| Neo-GNN  |   80.42±1.31   |   84.67±2.16   |   73.93±1.19   |   98.74±0.55   |   98.27±0.79   |   62.13±0.58   |   63.57±3.52   |   49.13±0.60   |   87.26±0.84   |
-|  BUDDY   |  *88.00±0.44*  |  *92.93±0.27*  |   74.10±0.78   |  *99.05±0.21*  |   98.69±0.34   |  *65.94±0.58*  |  *78.51±1.36*  | **49.85±0.20** |   87.56±0.11   |
-|  HL-GNN  | **94.22±1.64** | **94.31±1.51** | **88.15±0.38** | **99.11±0.07** | **98.82±0.21** | **68.11±0.54** | **80.27±3.98** |  *49.22±0.95*  | **89.43±0.83** |
+The performance of HL-GNN on various datasets is summarized in the table below. The best and second-best performances are highlighted in **bold** and *italic*, respectively.
+
+|         |   Cora    | Citeseer  |  Pubmed   |   Photo   | Computers |  collab   |    ddi    |    ppa    | citation2 |
+| :-----: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: |
+| Method  | Hits@100  | Hits@100  | Hits@100  |    AUC    |    AUC    |  Hits@50  |  Hits@20  | Hits@100  |    MRR    |
+|  SEAL   |   81.71   |   83.89   |  *75.54*  |   98.85   |  *98.70*  |   64.74   |   30.56   |   48.80   |  *87.67*  |
+| NBFNet  |   71.65   |   74.07   |   58.73   |   98.29   |   98.03   |    OOM    |   4.00    |    OOM    |    OOM    |
+| Neo-GNN |   80.42   |   84.67   |   73.93   |   98.74   |   98.27   |   62.13   |   63.57   |   49.13   |   87.26   |
+|  BUDDY  |  *88.00*  |  *92.93*  |   74.10   |  *99.05*  |   98.69   |  *65.94*  |  *78.51*  |  *49.85*  |   87.56   |
+| HL-GNN  | **94.22** | **94.31** | **88.15** | **99.11** | **98.82** | **68.11** | **80.27** | **56.77** | **89.43** |
+
+## Acknowledgement
+
+We sincerely thank the [PLNLP repository](https://github.com/zhitao-wang/PLNLP) for providing an excellent pipeline that greatly facilitated our work on the OGB datasets.
+
+## Citation
+
+If you find HL-GNN useful in your research, please cite our paper:
+
+```bibtex
+@inproceedings{zhang2024heuristic,
+  title={Heuristic Learning with Graph Neural Networks: A Unified Framework for Link Prediction},
+  author={Zhang, Juzheng and Wei, Lanning and Xu, Zhen and Yao, Quanming},
+  booktitle={Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining},
+  year={2024}
+}
+```
+
+Feel free to reach out if you have any questions!
+
